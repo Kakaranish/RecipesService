@@ -99,3 +99,26 @@ input#search_button::-webkit-input-placeholder {
 }
 
 
+/* Jumbotron */
+.border1 {
+	border: 1px solid red;
+}
+
+.jumbotron-title {
+
+	font-family: 'Open Sans', sans-serif;
+	text-shadow: 1px 1px 3px #666;
+}
+
+.highlight {
+	width: 600px;
+	color: rgb(240, 240, 240);
+	background: #606268a4;
+	border-radius: 45px;
+	padding: 3%;
+}
+
+
+.footer-col {
+	padding: 20px 30px 20px 30px;
+}
