@@ -1,0 +1,242 @@
+<!-- ------------------------------------ HEADER ------------------------------------------ -->
+<% include ../partials/header %>
+<!-- ------------------------------------ /HEADER ------------------------------------------ -->
+
+<!-- ------------------------------------ NAVBAR ------------------------------------------ -->
+<% include ../partials/navbar %>
+<!-- ------------------------------------ /NAVBAR ------------------------------------------ -->
+
+<!-- ------------------------------------ PRZEPIS ------------------------------------------ -->
+
+
+<style>
+    .border1 {
+        border: 1px solid red;
+    }
+
+    .title-font {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 35px;
+    }
+
+    .checked {
+        color: orange;
+    }
+</style>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container" style="padding:40px; margin-top:20px; border: 1px solid rgba(128, 128, 128, 0.308);">
+
+    <!-- ----------------------------- HEADER OF RECIPE ------------------------- -->
+    <div class="row">
+
+        <div class="col-12 col-sm-5 " style="display:flex; align-items:center;">
+            <!-- <div class="text-center border1" >
+            </div> -->
+
+            <div class="row text-center">
+                <div class="col-12 title-font">
+
+                    <%= user_recipe_info[0]['recipe_name'] %>
+                </div>
+
+                <div class="col-12">
+                    Autor:
+                    <b id="autor_przepisu">
+                        <%= user_recipe_info[0]['user_first_name'] + " " + user_recipe_info[0]['user_last_name']  + (user_recipe_info[0]['user_nickname'] ? "(" + user_recipe_info[0]['user_nickname'] + ")": '' )%>
+                    </b>
+                </div>
+                <div class="col-12">
+                    Dodano:
+                    <span id="data_dodania">
+                        <%= user_recipe_info[0]['recipe_datetime'].toLocaleString();%>
+                    </span>
+                </div>
+                <div class="col-12">
+                    <small>
+                        Kalorie(całość):
+                        <%= calories_sum_info[0]['recipe_sum_calories']%>
+                    </small>
+                </div>
+
+
+                <div class="col-12" style="padding-top:40px;">
+
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+
+                    9
+
+                </div>
+                <div class="col-12" style="padding-top:15px;padding-bottom:15px;">
+                    <a href="#">
+                        <img src="/public/img/social-media/facebook.png" width="30px;" style="margin-left:10px; margin-right: 10px;">
+                    </a>
+                    <a href="#">
+                        <img src="/public/img/social-media/google-plus.png" width="30px;" style="margin-right: 10px;">
+                    </a>
+                    <a href="#">
+                        <img src="/public/img/social-media/linked.png" width="30px;" style="margin-right: 10px;">
+                    </a>
+                    <a href="#">
+                        <img src="/public/img/social-media/twitter.png" width="30px;">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-12 col-sm-7">
+            <img id="zdjecie_glowne" class="img-fluid" src="<%=user_recipe_info[0]['recipe_main_photo_URL']%>" height="300px;">
+
+        </div>
+        
+        <!-- </div> -->
+
+    </div>
+    <!-- ----------------------------- /HEADER OF RECIPE ------------------------- -->
+    <!--------------------------------------  TAGS ------------------------------- -->
+
+
+    <style>
+        .btn.btn-blk {
+            background: #000;
+            color: #fff;
+            border-radius: 0;
+            outline: 0;
+            margin-right: 10px;
+        }
+    </style>
+    <div class="row" style="margin-top:40px;">
+        <div id="tags" class="col-12">
+
+
+            <% for(var i=0; i < tags_info.length; i++) { %>
+            <button class="btn btn-blk">
+                #
+                <%= tags_info[i]['tag_name'] %>
+            </button>
+            <% } %>
+
+
+        </div>
+    </div>
+    <!-------------------------------------- /TAGS ------------------------------- -->
+    <!---------------------------------  SKŁADNIKI I OPIS ------------------------------- -->
+
+    <div class="row" style="margin-top:40px;">
+        <div id="skladniki" class="col-sm-5 col-12">
+            <div class="row">
+                <div class="col-12 text-center title-font" style="">
+                    Składniki
+                </div>
+
+                <ul class="list-group" style="width:100%;">
+
+                    <% for(var i=0; i < ingredients_info.length; i++) { %>
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <%= ingredients_info[i]['ingredient_name']%>
+                        <span class="badge">
+                            <%= ingredients_info[i]['ingredient_amount'] %>
+                            <%= ingredients_info[i]['ingredient_unit'] %>
+
+                        </span>
+                    </li>
+
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+        <div id="skladniki" class="col-sm-7 col-12 " style="padding-left:30px; border-left: 1px solid rgba(128, 128, 128, 0.527);">
+            <div class="row">
+                <div class="col-12 text-center title-font" style="">
+                    Przygotowanie
+                </div>
+                <div class="col-12">
+                    <%= user_recipe_info[0]['recipe_description'] %>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--------------------------------- /SKŁADNIKI OPIS ------------------------------- -->
+    <!--------------------------------------- GALERIA --------------------------------- -->
+
+    <style>
+        .recipe-box {
+            padding: 30px;
+        }
+
+        .recipe-box img {
+            width: 100%;
+            height: 230px;
+            overflow: hidden;
+        }
+    </style>
+
+    <div class="row" style="margin-top:20px; border: 1px solid rgba(128, 128, 128, 0.527);">
+        <div class="col-12 text-center">
+            <span class="title-font">
+                Galeria
+            </span>
+        </div>
+
+        <% for(var i=0; i < photos_info.length; i++) { %>
+
+        <a href="#" class="col-lg-4 col-md-6 col-12 recipe-box">
+            <img src=" <%= photos_info[i]['URL']%>">
+        </a>
+        <% } %>
+    </div>
+
+    <!--------------------------------------- /GALERIA --------------------------------- -->
+</div>
+
+<!-- ------------------------------------ KOMENTARZE  ------------------------------------------ -->
+
+<div class="container" style="margin-top:30px;">
+    <div class="row">
+        <div class="col-12 text-center">
+            <span class="title-font">
+                Komentarze
+            </span>
+        </div>
+    </div>
+    <div class="row">
+
+        <% for(var i=0; i < comments_info.length; i++) { %>
+        <div class="col-12" style="padding:15px; padding-bottom:25px; border-bottom: 1px solid rgba(128, 128, 128, 0.527);">
+
+            <div class="col-12">
+                <small>
+                    <%= comments_info[i]['comment_datetime'].toLocaleString();%>
+                </small>
+            </div>
+            <div class="col-12">
+                <span>
+                    <%= comments_info[i]['comment_first_name'] + " " + comments_info[i]['comment_last_name']  + (comments_info[i]['comment_nickname'] ? "(" + comments_info[i]['comment_nickname'] + ")": '' )%>
+                </span>
+            </div>
+            <div class="col-12" style="margin-top:15px;">
+                <span>
+                    <%= comments_info[i]['comment_content']%>
+                </span>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+<!-- ------------------------------------ /PRZEPIS ------------------------------------------ -->
+
+<!-- ------------------------------------ FOOTER ------------------------------------------ -->
+<% include ../partials/footer %>
+<!-- ------------------------------------ /FOOTER ------------------------------------------ -->

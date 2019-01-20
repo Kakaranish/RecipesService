@@ -1,72 +1,73 @@
-
 #mainmenu {
-    font-size: 1.1rem;
-    background-color: #e3f2fd;
+	font-size: 1.1rem;
+	background-color: #e3f2fd;
 }
 
 .dropdown-menu {
-    min-width: 200px;
+	min-width: 200px;
 }
 
 .dropdown-menu.columns-2 {
-    min-width: 400px;
+	min-width: 400px;
 }
 
 .dropdown-menu.columns-3 {
-    min-width: 600px;
+	min-width: 600px;
 }
 
 .dropdown-menu li a {
-    padding: 5px 15px;
-    font-weight: 300;
+	padding: 5px 15px;
+	font-weight: 300;
 }
 
 .multi-column-dropdown {
-    list-style: none;
+	list-style: none;
 }
 
 .multi-column-dropdown li a {
-    display: block;
-    clear: both;
-    line-height: 1.428571429;
-    color: #333;
-    white-space: normal;
+	display: block;
+	clear: both;
+	line-height: 1.428571429;
+	color: #333;
+	white-space: normal;
 }
 
 .multi-column-dropdown li a:hover {
-    text-decoration: none;
-    color: #262626;
-    background-color: #f5f5f5;
+	text-decoration: none;
+	color: #262626;
+	background-color: #f5f5f5;
 }
 
 @media (max-width: 767px) {
-    .dropdown-menu.multi-column {
-        min-width: 240px !important;
-        overflow-x: hidden;
-    }
+	.dropdown-menu.multi-column {
+		min-width: 240px !important;
+		overflow-x: hidden;
+	}
 }
 
 .dropdown.has-megamenu {
-    position: static;
+	position: static;
 }
 
 
 input#search_button {
 	outline: none;
 }
+
 input#search_button[type=search] {
 	-webkit-appearance: textfield;
 	-webkit-box-sizing: content-box;
 	font-family: inherit;
 	font-size: 100%;
 }
+
 input#search_button::-webkit-search-decoration,
 input#search_button::-webkit-search-cancel-button {
-	display: none; 
+	display: none;
 }
 
 
-input[type=search]#search_button  {
+input[type=search]#search_button {
 	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
 	border: solid 1px #ccc;
 	padding: 9px 10px 9px 32px;
@@ -75,25 +76,27 @@ input[type=search]#search_button  {
 	-webkit-border-radius: 10em;
 	-moz-border-radius: 10em;
 	border-radius: 10em;
-	
+
 	-webkit-transition: all .5s;
 	-moz-transition: all .5s;
 	transition: all .5s;
 }
+
 input[type=search]#search_button:focus {
 	width: 130px;
 	background-color: #fff;
 	border-color: #66CC75;
-	
-	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
-	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
-	box-shadow: 0 0 5px rgba(109,207,246,.5);
+
+	-webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+	-moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+	box-shadow: 0 0 5px rgba(109, 207, 246, .5);
 }
 
 
 input#search_button:-moz-placeholder {
 	color: #999;
 }
+
 input#search_button::-webkit-input-placeholder {
 	color: #999;
 }
