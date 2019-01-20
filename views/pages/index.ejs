@@ -41,53 +41,20 @@
 </style>
 <div class="container" style="padding-bottom:40px;">
     <div class="row">
-        <a href="#" class="col-lg-4 col-md-6 col-12 recipe-box">
 
-            <img src="/public/img/recipes/ciasto_pinata.jpg">
+        <% for(var i=0; i < user_recipe_info.length; i++) { %>
+        <a href="/przepisy/<%= user_recipe_info[i]['recipe_id'] %>" class="col-lg-4 col-md-6 col-12 recipe-box">
+
+            <img src="<%= user_recipe_info[i]['recipe_main_photo_url'] %>">
             <div href="#" class="text-center recipe-title">
 
-                Ciasto Pinata
-            </div>
-
-        </a>
-        <a href="#" class="col-lg-4 col-md-6 col-12 recipe-box">
-
-            <img src="/public/img/recipes/serowa_zapiekanka.jpg">
-            <div href="#" class="text-center recipe-title">
-
-                Serowa zapiekanka z brokułem
+                <%= user_recipe_info[i]['recipe_name'] %>
             </div>
 
         </a>
 
-        <a href="#" class="col-lg-4 col-md-6 col-12 recipe-box">
+        <% } %>
 
-            <img src="/public/img/recipes/klasyczny_burger.jpg">
-            <div href="#" class="text-center recipe-title">
-
-                Klasyczny burger
-            </div>
-
-        </a>
-        <a href="#" class="col-lg-4 col-md-6 col-12 recipe-box">
-
-            <img src="/public/img/recipes/dip.jpg">
-            <div href="#" class="text-center recipe-title">
-
-                Dip z ciecierzycy
-            </div>
-
-        </a>
-
-        <a href="#" class="col-lg-4 col-md-6 col-12 recipe-box">
-
-            <img src="/public/img/recipes/grochowka.jpg">
-            <div href="#" class="text-center recipe-title">
-
-                Grochówka wojskowa
-            </div>
-
-        </a>
     </div>
 
 
@@ -98,4 +65,3 @@
 <!-- ------------------------------------ FOOTER ------------------------------------------ -->
 <% include ../partials/footer %>
 <!-- ------------------------------------ /FOOTER ------------------------------------------ -->
-

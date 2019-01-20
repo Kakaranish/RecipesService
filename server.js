@@ -18,10 +18,29 @@ var connection = mysql.createConnection({
 
 // index page 
 app.get('/', function (req, res) {
-    res.render('pages/index');
+
+    var user_recipe_query = `select Recipes.recipe_id as 'recipe_id', Recipes.name as 'recipe_name', Recipes.main_photo_url as 'recipe_main_photo_url' from Recipes;`;
+    var user_recipe_info;
+
+    connection.query(user_recipe_query, function (error, results, fields) {
+        if (error) throw error;
+        user_recipe_info = results;
+
+        console.log(user_recipe_info);
+        res.render('pages/index', {
+            user_recipe_info: user_recipe_info
+        });
+
+    });
+
+
 });
 app.get('/test', function (req, res) {
     res.render('pages/test');
+});
+
+app.get('/dodaj_przepis', function (req, res) {
+    res.render('pages/dodaj_przepis');
 });
 
 // about page 
@@ -111,7 +130,7 @@ app.get('/przepisy/:id', function (req, res) {
                         connection.query(photos_query, function (error, results5, fields) {
                             if (error) throw error;
                             photos_info = results5;
- 
+
                             var queries_results = {
                                 user_recipe_info: user_recipe_info,
                                 tags_info: tags_info,
